@@ -1,0 +1,58 @@
+[
+  {
+    "id": "win_001",
+    "title": "AI-assisted QA triage → faster bug turnaround",
+    "date_start": "2025-11-04",
+    "date_end": "2025-11-06",
+    "tags": ["QA", "Automation", "Frontend"],
+    "source_refs": ["jira:PROJ-2181", "slack:#release-room"],
+    "wow_score": 8.6,
+    "problem": "Bugs were arriving with inconsistent repro steps and scattered context, slowing fixes and making releases riskier.",
+    "approach": [
+      "Standardized an intake format and used AI to extract: steps, expected vs actual, environment, and suspected component",
+      "Added a lightweight checklist so humans confirm the critical details before handoff",
+      "Generated a short “next action” summary for each ticket"
+    ],
+    "evidence_snippets": [
+      "“Repro steps are now consistent across tickets; we stopped guessing.”",
+      "“The summary tells me exactly where to start looking.”"
+    ],
+    "prompt_template": "You are a QA triage assistant.\n\nGiven the bug report text, extract:\n- Minimal repro steps (numbered)\n- Expected vs actual\n- Environment clues (browser/OS/build)\n- Suspected area (component/page)\n- Missing info (ask 2-4 targeted questions)\n\nBug report:\n{{BUG_TEXT}}",
+    "short_script": "I used AI to turn messy bug reports into a consistent triage package: clean repro steps, environment, and missing questions—so engineers start fixing immediately instead of doing archaeology.",
+    "redactions_applied": true
+  },
+  {
+    "id": "win_002",
+    "title": "Reusable prompt pack for stakeholder updates",
+    "date_start": "2025-10-12",
+    "tags": ["Communication", "Product", "Writing"],
+    "source_refs": ["docs:weekly-update-template"],
+    "wow_score": 7.4,
+    "problem": "Weekly updates were time-consuming and varied in quality depending on who wrote them.",
+    "approach": "Built a repeatable prompt template that converts raw bullet notes into a crisp stakeholder update with risks, next steps, and asks.\n- Added a 'no fabrication' constraint\n- Included a short TL;DR and optional deeper dive section",
+    "evidence_snippets": ["“This reads like a real PM update, not a brain dump.”"],
+    "prompt_template": "You are a concise, high-trust status update writer.\n\nRules:\n- Do not invent outcomes.\n- If something is unclear, mark it as 'Unknown'.\n\nTurn these raw notes into:\n1) TL;DR (3 bullets)\n2) Progress\n3) Risks/blocks\n4) Next steps\n5) Asks\n\nRaw notes:\n{{NOTES}}",
+    "short_script": "I made a prompt-based update template that turns raw notes into a consistent weekly stakeholder report—with explicit non-fabrication rules—so updates are fast and trustworthy.",
+    "redactions_applied": true
+  },
+  {
+    "id": "win_003",
+    "title": "UI copy polish pass with AI—fewer ambiguous labels",
+    "date_start": "2025-09-28",
+    "tags": ["UX", "Copywriting", "Frontend"],
+    "source_refs": ["figma:file-12345", "pr:482"],
+    "wow_score": 6.2,
+    "problem": "Several UI labels were ambiguous and caused repeat questions (“What does this do?”).",
+    "approach": [
+      "Collected the top confusing labels from support notes",
+      "Used AI to propose variants constrained to existing intent and UI space",
+      "Reviewed and selected final copy with a quick sanity check"
+    ],
+    "evidence_snippets": ["“The new labels are much clearer—no more guessing.”"],
+    "prompt_template": "You are a UX writer.\n\nGiven UI text and context, propose 5 alternatives.\nConstraints:\n- Keep intent identical.\n- Max length: {{MAX_CHARS}} chars.\n- Avoid jargon.\n\nContext:\n{{CONTEXT}}\n\nOriginal:\n{{TEXT}}",
+    "short_script": "I used AI as a UX writing partner to generate constrained label alternatives, then picked the clearest ones—improving comprehension without changing product behavior.",
+    "redactions_applied": true
+  }
+]
+
+

@@ -1,0 +1,33 @@
+[
+  {
+    "date": "2025-11-06",
+    "day_summary": "Closed the loop on QA triage format + refined prompts",
+    "items": [
+      "Reviewed 6 incoming bug reports and validated the extracted repro steps",
+      "Tuned the triage prompt to ask fewer, higher-signal questions",
+      { "text": "Captured before/after examples for evidence snippets" }
+    ],
+    "source_refs": ["jira:PROJ-2181", "slack:#release-room"]
+  },
+  {
+    "date": "2025-11-05",
+    "day_summary": "Implemented intake checklist and added quick summary output",
+    "items": [
+      "Drafted a short checklist for humans to confirm environment + expected behavior",
+      "Added a ticket summary format: suspected area + next action",
+      "Shared template with the team and incorporated feedback"
+    ]
+  },
+  {
+    "date": "2025-10-12",
+    "day_summary": "Built a stakeholder update prompt pack",
+    "items": [
+      "Converted raw notes into a consistent update structure (TL;DR, progress, risks, asks)",
+      "Added a strict non-fabrication rule and 'Unknown' fallback",
+      "Saved the prompt template for reuse"
+    ],
+    "source_refs": ["docs:weekly-update-template"]
+  }
+]
+
+
